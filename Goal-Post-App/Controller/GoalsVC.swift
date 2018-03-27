@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData //core data to save persistent storage on device
 
 class GoalsVC: UIViewController {
 
@@ -17,7 +18,7 @@ class GoalsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let goal = Goal() //this is core data, but works like a class.
     }
     
     
