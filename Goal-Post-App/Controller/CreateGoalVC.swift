@@ -41,7 +41,7 @@ class CreateGoalVC: UIViewController {
     
 
     @IBAction func backBtnWasPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismissDetail() //to dismiss it with the specific animation we wanted
     }
     
 }

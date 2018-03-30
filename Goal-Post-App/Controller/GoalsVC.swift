@@ -26,9 +26,9 @@ class GoalsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //IBActions
     @IBAction func addGoalBtnWasPressed(_ sender: Any) {
-        print("btn was pressed")
+        guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else { return } //to create identifier to move between views
+        presentDetail(viewControllerToPresent: createGoalVC) //to present the view controller using the extension animation
     }
-    
     
     
     func numberOfSections(in tableView: UITableView) -> Int {

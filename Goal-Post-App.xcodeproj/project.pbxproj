@@ -15,6 +15,7 @@
 		FE2FF081206977E600CD6CBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2FF07F206977E600CD6CBE /* LaunchScreen.storyboard */; };
 		FE2FF08D2069855B00CD6CBE /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2FF08C2069855B00CD6CBE /* GoalCell.swift */; };
 		FE398582206B10990032582D /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE398581206B10990032582D /* GoalType.swift */; };
+		FEEB41BA206E9461007A6BF4 /* UiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEB41B9206E9461007A6BF4 /* UiViewController.swift */; };
 		FEF063B1206C3D8C000A6218 /* CreateGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF063B0206C3D8C000A6218 /* CreateGoalVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		FE2FF082206977E600CD6CBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE2FF08C2069855B00CD6CBE /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		FE398581206B10990032582D /* GoalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
+		FEEB41B9206E9461007A6BF4 /* UiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewController.swift; sourceTree = "<group>"; };
 		FEF063B0206C3D8C000A6218 /* CreateGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 		FE2FF08B2069780600CD6CBE /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FEEB41B9206E9461007A6BF4 /* UiViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				FE2FF08D2069855B00CD6CBE /* GoalCell.swift in Sources */,
 				FEF063B1206C3D8C000A6218 /* CreateGoalVC.swift in Sources */,
 				FE398582206B10990032582D /* GoalType.swift in Sources */,
+				FEEB41BA206E9461007A6BF4 /* UiViewController.swift in Sources */,
 				FE2FF076206977E600CD6CBE /* GoalsVC.swift in Sources */,
 				FE2FF074206977E600CD6CBE /* AppDelegate.swift in Sources */,
 				FE2FF07C206977E600CD6CBE /* Goal_Post_App.xcdatamodeld in Sources */,
