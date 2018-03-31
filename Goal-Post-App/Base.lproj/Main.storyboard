@@ -230,13 +230,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="06J-2q-Xrj">
                                 <rect key="frame" x="20" y="90" width="335" height="260"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="What is your goal?" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV2-YM-iWU">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="What is your Goal?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d4i-cg-KjC">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="170.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="select one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqB-cI-kep">
                                         <rect key="frame" x="0.0" y="180.5" width="335" height="19.5"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
@@ -307,7 +306,7 @@
                     </view>
                     <connections>
                         <outlet property="LongTermBtn" destination="UnV-6K-QKF" id="lp4-Du-eAs"/>
-                        <outlet property="goalTxtView" destination="UV2-YM-iWU" id="vq5-jW-mAv"/>
+                        <outlet property="goalTxtView" destination="d4i-cg-KjC" id="xms-OW-Xmg"/>
                         <outlet property="nextBtn" destination="alM-q7-OY4" id="F9d-Es-ecT"/>
                         <outlet property="shortTermBtn" destination="0Ow-CM-EpF" id="jHb-dO-9A3"/>
                     </connections>
