@@ -8,11 +8,11 @@
 
 import UIKit
 
-class CreateGoalVC: UIViewController {
+class CreateGoalVC: UIViewController, UITextViewDelegate {
 
     
     //IBOutlets
-    @IBOutlet weak var goalTxtView: UITextField!
+    @IBOutlet weak var goalTxtView: UITextView!
     @IBOutlet weak var shortTermBtn: UIButton!
     @IBOutlet weak var LongTermBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
@@ -25,6 +25,7 @@ class CreateGoalVC: UIViewController {
         nextBtn.bindToKeyboard() //if you call this, when keyboard goes up, nxt button goes up with it as well
         shortTermBtn.setSelectedColor() //sets the button to be dark green
         LongTermBtn.setDeselctedColor() //sets btn to be light green
+        goalTxtView.delegate = self //delegate
     }
     
     //IBActions
@@ -43,7 +44,11 @@ class CreateGoalVC: UIViewController {
     
     
     @IBAction func nextBtnWasPressed(_ sender: Any) {
-        
+        if goalTxtView.text != "" && goalTxtView.text != "What is your goal?" { //make sure their is something typed into the txtField
+            guard let finishGoalVC = storyboard?.instantiateViewController(withIdentifier: "FinishGoalVC") as? FinishGoalVC else { return }
+            finishGoalVC.initData(description: goalTxtView.text!, type: goalType) //initializes data that was passed into this vc, to be passed into the next one
+            presentDetail(viewControllerToPresent: finishGoalVC) //to present the next view controller(with custom animations, and now it should have data initialized already)
+        }
     }
     
 
@@ -51,4 +56,9 @@ class CreateGoalVC: UIViewController {
         dismissDetail() //to dismiss it with the specific animation we wanted
     }
     
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        goalTxtView.text = "" //clear previous txt
+        goalTxtView.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) //color black
+    }
 }
