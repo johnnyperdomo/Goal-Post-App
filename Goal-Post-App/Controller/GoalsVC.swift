@@ -9,6 +9,10 @@
 import UIKit
 import CoreData //core data to save persistent storage on device
 
+let appDelegate = UIApplication.shared.delegate as? AppDelegate //we can now access the appdelegate from anywhere in our project
+
+
+
 class GoalsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //IBOutlets
@@ -37,7 +41,7 @@ class GoalsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 3
+       return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

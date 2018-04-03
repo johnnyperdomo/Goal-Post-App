@@ -44,10 +44,10 @@ class CreateGoalVC: UIViewController, UITextViewDelegate {
     
     
     @IBAction func nextBtnWasPressed(_ sender: Any) {
-        if goalTxtView.text != "" && goalTxtView.text != "What is your goal?" { //make sure their is something typed into the txtField
+        if goalTxtView.text != "" && goalTxtView.text != "What Is Your Goal?" { //make sure their is something typed into the txtField
             guard let finishGoalVC = storyboard?.instantiateViewController(withIdentifier: "FinishGoalVC") as? FinishGoalVC else { return }
             finishGoalVC.initData(description: goalTxtView.text!, type: goalType) //initializes data that was passed into this vc, to be passed into the next one
-            presentDetail(viewControllerToPresent: finishGoalVC) //to present the next view controller(with custom animations, and now it should have data initialized already)
+            presentingViewController?.presentSecondaryDetail(viewControllerToPresent: finishGoalVC) //dismiss the old animation and VC, to present the next view controller(with custom animations, and now it should have data initialized already)
         }
     }
     
