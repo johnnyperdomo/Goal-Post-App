@@ -16,13 +16,10 @@ class GoalCell: UITableViewCell {
     @IBOutlet weak var goalProgressLbl: UILabel!
     
     
-    func configureCell(description: String, type: GoalType, goalProgressAmount: Int) { //when we init these cells the data will input into the cells
-        self.goalDescriptionLbl.text = description
-        self.goalTypeLbl.text = type.rawValue //the raw value is a string
-        self.goalProgressLbl.text = String(describing: goalProgressAmount) //converts int into string, the textual value, not the numerical value
-        
-        
-        
+    func configureCell(goal: Goal) { //when we init these cells the data will input into the cells
+        self.goalDescriptionLbl.text = goal.goalDescription
+        self.goalTypeLbl.text = goal.goalType
+        self.goalProgressLbl.text = String(describing: goal.goalProgress) //converts int into string, the textual value, not the numerical value
     }
     
 }

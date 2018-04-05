@@ -69,7 +69,7 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
         //save it in persistent storage
         do { //neeeds a do, catch block bcuz .save is "throws"
             try managedContext.save() //we have to try
-            print("yassss")
+            print("saved info into core data")
             completion(true) //if works, it's true
         } catch { //if it doesn't work, catch the error
             debugPrint("could not save: \(error.localizedDescription)")
