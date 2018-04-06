@@ -88,14 +88,41 @@ class GoalsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .automatic) //remove a certain row that we deleted, and animate it closing; automatic is a type of animation
         }
         
-        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1) //color of the delete button
+        let addAction = UITableViewRowAction(style: .normal, title: "ADD 1") { (rowAction, indexPath) in
+            self.setProgress(atIndexPath: indexPath) //call our func to add progress
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
         
-        return [deleteAction]
+        deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1) //color of the delete button
+        addAction.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+        
+        return [deleteAction, addAction] //return the actions
     }
 }
 
 
 extension GoalsVC {
+    
+    func setProgress(atIndexPath indexPath: IndexPath ) { //set the progress of our goal
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return } //hold that context
+
+        let chosenGoal = goals[indexPath.row] //pull out the index path
+        
+        if chosenGoal.goalProgress < chosenGoal.goalCompletionValue { //if the progress is the less than the goal Value, add +1 to the progress.
+            chosenGoal.goalProgress = chosenGoal.goalProgress + 1
+        } else {
+            return //if its more than goalValue, return out of this function
+        }
+        
+        do { //save it into our core data; //save the managed context to update everything
+            try managedContext.save()
+            print("successfully set progress!")
+        } catch {
+            debugPrint("Could not set progress: \(error.localizedDescription)")
+        }
+        
+    }
+    
     
     func removeGoal(atIndexPath indexPath: IndexPath) { //to remove a goal, we want to remove it from the core data
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
