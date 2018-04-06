@@ -18,6 +18,7 @@ class GoalsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var undoBtnView: UIView!
+    @IBOutlet weak var goalRemovenotif: UIView!
     
     
     var goals: [Goal] = [] //open array, we use this array for the fetch request since it returns an array of our data
@@ -56,6 +57,14 @@ class GoalsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func noUndoBtnPressed(_ sender: Any) {
         undoBtnView.isHidden = true
+        goalRemovenotif.isHidden = false
+        goalRemovenotif.alpha = 0.8
+        UIView.animate(withDuration: 0.5, delay: 0.5, options:[], animations: {
+            self.goalRemovenotif.alpha = 0
+        }) { (finished) in
+            self.goalRemovenotif.isHidden = true
+        }
+        
     }
     
     @IBAction func yesUndoBtnPressed(_ sender: Any) {

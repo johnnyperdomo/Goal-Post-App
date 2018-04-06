@@ -229,11 +229,29 @@
                                     <constraint firstAttribute="height" constant="50" id="vBQ-AU-AmC"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lvf-b9-DYj">
+                                <rect key="frame" x="37.5" y="258" width="300" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Removed Goal :)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AN-CG-fVt">
+                                        <rect key="frame" x="48.5" y="59" width="202" height="31.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="27"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="0rF-N7-etf"/>
+                                    <constraint firstAttribute="width" constant="300" id="6Gg-Yh-1pC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1qG-le-m9d" secondAttribute="bottom" id="5ld-nx-xfM"/>
                             <constraint firstAttribute="trailing" secondItem="JnB-1U-xRs" secondAttribute="trailing" id="95D-bA-8wH"/>
+                            <constraint firstItem="Lvf-b9-DYj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ACR-Fi-8l2"/>
                             <constraint firstItem="0Ln-LP-wOY" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="OG0-Np-T3X"/>
                             <constraint firstItem="1qG-le-m9d" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="OYY-bE-NEz"/>
                             <constraint firstItem="JcI-TW-or7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VvK-zV-MaW"/>
@@ -243,11 +261,13 @@
                             <constraint firstItem="0Ln-LP-wOY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dYI-Bz-jEN"/>
                             <constraint firstItem="JnB-1U-xRs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ghh-Yv-XbE"/>
                             <constraint firstItem="1qG-le-m9d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hq9-u8-a0V"/>
+                            <constraint firstItem="Lvf-b9-DYj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jLb-Nh-ENq"/>
                             <constraint firstItem="0Ln-LP-wOY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xGr-7I-ddZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="goalRemovenotif" destination="Lvf-b9-DYj" id="6iM-qD-EeV"/>
                         <outlet property="tableView" destination="0Ln-LP-wOY" id="5L5-vK-TZW"/>
                         <outlet property="undoBtnView" destination="1qG-le-m9d" id="PjF-1m-lbc"/>
                     </connections>
