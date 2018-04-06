@@ -17,13 +17,13 @@ class GoalsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //IBOutlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var undoBtnView: UIView!
     
     
     var goals: [Goal] = [] //open array, we use this array for the fetch request since it returns an array of our data
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let goal = Goal() //this is core data, but works like a class.
         tableView.delegate = self //conform to these protocols/ delegate & dataSource
         tableView.dataSource = self //so the app can know what you're talking about and whats the data source
     }
@@ -54,6 +54,20 @@ class GoalsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         presentDetail(viewControllerToPresent: createGoalVC) //to present the view controller using the extension animation
     }
     
+    @IBAction func noUndoBtnPressed(_ sender: Any) {
+        undoBtnView.isHidden = true
+    }
+    
+    @IBAction func yesUndoBtnPressed(_ sender: Any) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return } //hold that context
+        managedContext.undoManager?.undo()
+        undoBtnView.isHidden = true
+        fetchCoreDataObjects()
+        tableView.reloadData()
+    }
+    
+    
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -83,7 +97,7 @@ class GoalsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? { //two actions: delete, and add progress
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in //destructive is used to destroy
-            self.removeGoal(atIndexPath: indexPath) //call our function to remove the goal
+            self.removeGoal(atIndexPath: indexPath)
             self.fetchCoreDataObjects() //call fetch, to update data
             tableView.deleteRows(at: [indexPath], with: .automatic) //remove a certain row that we deleted, and animate it closing; automatic is a type of animation
         }
@@ -127,10 +141,13 @@ extension GoalsVC {
     func removeGoal(atIndexPath indexPath: IndexPath) { //to remove a goal, we want to remove it from the core data
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         
+        managedContext.undoManager = UndoManager()
+        
         managedContext.delete(goals[indexPath.row]) //delete the managed context of goals(type Goal), and pull out the index path.row in the array to delete the right object
         
         do { //save the managed context to update everything
            try managedContext.save()
+            self.undoBtnView.isHidden = false
             print("successfully removed Goal")
         } catch {
             debugPrint("Could not remove: \(error.localizedDescription)")
@@ -138,9 +155,6 @@ extension GoalsVC {
         
         
     }
-    
-    
-    
     
     func fetch(completion: (_ complete: Bool) ->()) { //func to fetch data from persistant container
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return } //hold that context
