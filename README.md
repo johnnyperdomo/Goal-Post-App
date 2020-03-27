@@ -2,7 +2,7 @@
 Simple iOS Goal-Tracking app written in Swift 4 using CoreData
 
 ## Preview
-![Alt Text](https://media.giphy.com/media/8XQ4pVVazH2EaXl8vr/giphy.gif)
+![Alt Text](https://media.giphy.com/media/McZxg1DYfFa1qlhpkr/giphy.gif)
 
 **Built with**
 - Ios 11
